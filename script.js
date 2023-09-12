@@ -7,35 +7,36 @@ var characters = []
 var generateBtn = document.querySelector("#generate");
  
 
-const length = Number(window.prompt("How long would you like your password?", "between 8 - 123"));
+length = Number(window.prompt("How long would you like your password?", "between 8 - 123"));
 
- if (length <= 8, length >= 123){
+ if (length < 8 && length > 123 === null){
   alert("please enter a valid number");
-  } else (length >= 8, length <= 123)
-     var first = document.createElement[characters];
+  } else (length > 8 && length < 123)
+     var start = document.createElement[characters];
+     console.log(length)
 
-var upper = confirm("Would you like to add uppercase characters to your password?");
+char_upper = confirm("Would you like to add uppercase characters to your password?");
 
   if(upper === true){
     var upper = document.appendChild[characters];
   } else (upper === false)
     var upper = null;
 
-var lower = confirm("Would you like to add lowercase characters to your password?");
+char_lower = confirm("Would you like to add lowercase characters to your password?");
 
   if(lower === true){
     var lower = document.appendChild[characters];
   } else (lower === false)
     var lower = null;
 
-var num = confirm("Would you like to add numbers to your password?");
+num = confirm("Would you like to add numbers to your password?");
 
   if(num === true){
     var num = document.appendChild[characters];
   } else (num === false)
     var num = null;
 
-var special = confirm("Would you like to add special characters to your password?");
+char_special = confirm("Would you like to add special characters to your password?");
 
   if(special === true){
     var special = document.appendChild[characters];
@@ -47,8 +48,6 @@ var special = confirm("Would you like to add special characters to your password
  function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  split("").characters.function(C);
-  return retval.includes(C)
  }
  
   passwordText.value = password;
@@ -56,4 +55,5 @@ var special = confirm("Would you like to add special characters to your password
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword)
+  writePassword();
