@@ -4,6 +4,7 @@ var char_lower = ("abcdefghijklmnopqrstuvwxyz")
 var char_num = ("0123456789")
 var char_special = ("! #$%&'()*+,-./:;<=>?@/[]^_`{|}~")
 var characters = ""
+var passwordText = document.querySelector("#password");
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword(){
@@ -51,7 +52,6 @@ function generatePassword(){
 
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
   passwordTextvalue = password
  }
  
@@ -60,11 +60,11 @@ function writePassword() {
 
 generateBtn.addEventListener("click", writePassword);
     function generateRandomString(characters, length) {
-        var result = '';
+        var result = "";
         for (var i = 0; i < length; i++) {
-          result += characters(Math.floor(Math.random() * characters.length));
+          password += generatePassword(Math.floor(Math.random() * characters.length));
         }
-        return result;
+        return password;
 }
 
 
