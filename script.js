@@ -3,57 +3,77 @@ var char_upper = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 var char_lower = ("abcdefghijklmnopqrstuvwxyz")
 var char_num = ("0123456789")
 var char_special = ("! #$%&'()*+,-./:;<=>?@/[]^_`{|}~")
-var characters = []
+var characters = ""
 var generateBtn = document.querySelector("#generate");
+
+function generatePassword(){
+  //Asking user how they would like password formatted
+  length = Number(window.prompt("How long would you like your password?", "between 8 - 123"));
+  upper = confirm("Would you like to add uppercase characters to your password?");
+  lower = confirm("Would you like to add lowercase characters to your password?");
+  num = confirm("Would you like to add numbers to your password?");
+  special = confirm("Would you like to add special characters to your password?");
+
+    //Simple
+      if(upper && !lower && !num && !special) {
+        characters = generateRandomString(upper, length); 
+    } else if (!upper && lower && !num && !special) {
+        characters = generateRandomString(lower, length);
+    } else if (!upper && !lower && num && !special) {
+        characters = generateRandomString(Num, length);
+    } else if (!upper && !lower && !num && special) {
+        characters = generateRandomString(special, length);
+    //complex with 2 var
+    } else if (upper && lower && !num && !special) {
+        characters = generateRandomString(upper, lower, length);
+    } else if (upper && !lower && num && !special) {
+        characters = generateRandomString(upper, num, length);
+    } else if (upper && !lower && !num && special) {
+        characters = generateRandomString(upper,special, length);
+    } else if (!upper && lower && num && !special) {
+        characters = generateRandomString(lower,num, length);
+    } else if (!upper && lower && !num && special) {
+        characters = generateRandomString(lower,special, length);
+    } else if (!upper && !lower && num && special){
+        characters = generateRandomString(num,special, length);
+    //Complex with 3 var
+    } else if (upper && lower && num && !special) {
+        characters = generateRandomString(upper, lower,num, length);
+    } else if (upper && lower && !num && special) {
+        characters = generateRandomString(upper, lower, special, length);
+    } else if (!upper && lower && num && special) {
+        characters = generateRandomString(lower, num, special, length);
+    //complex with all
+    } else if (upper && lower && num && special) {
+    }
+    characters = String
+}
+
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordTextvalue = password
+ }
  
 
-length = Number(window.prompt("How long would you like your password?", "between 8 - 123"));
 
- if (length < 8 && length > 123 === null){
-  alert("please enter a valid number");
-  } else (length > 8 && length < 123)
-     var start = document.createElement[characters];
-     console.log(length)
 
-char_upper = confirm("Would you like to add uppercase characters to your password?");
+generateBtn.addEventListener("click", writePassword);
+    function generateRandomString(characters, length) {
+        var result = '';
+        for (var i = 0; i < length; i++) {
+          result += characters(Math.floor(Math.random() * characters.length));
+        }
+        return result;
+}
 
-  if(upper === true){
-    var upper = document.appendChild[characters];
-  } else (upper === false)
-    var upper = null;
-
-char_lower = confirm("Would you like to add lowercase characters to your password?");
-
-  if(lower === true){
-    var lower = document.appendChild[characters];
-  } else (lower === false)
-    var lower = null;
-
-num = confirm("Would you like to add numbers to your password?");
-
-  if(num === true){
-    var num = document.appendChild[characters];
-  } else (num === false)
-    var num = null;
-
-char_special = confirm("Would you like to add special characters to your password?");
-
-  if(special === true){
-    var special = document.appendChild[characters];
-  } else (special === false)
-    var special = null;
 
  // Write password to the #password input
 
- function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
- }
+
  
-  passwordText.value = password;
+ // passwordText.value = password;
   
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword)
-  writePassword();
